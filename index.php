@@ -7,13 +7,20 @@
 
         try{
           $mail->isSMTP();
-          // $mail->SMTPDebug = 2;
+          $mail->SMTPDebug = 3;
           $mail->Host = 'smtp.gmail.com';
           $mail->Port = 587;
           $mail->SMTPAuth = true;
           $mail->SMTPSecure = 'tls';
           $mail->Username = 'nasa.nase72@gmail.com';
           $mail->Password = 'Jasamnikola1';
+          $mail->SMTPOptions = array(
+            'ssl' => array(
+              'verify_peer' => false,
+              'verify_peer_name' => false,
+              'allow_self_signed' => true
+            )
+          );
   
           $mail->setFrom('nasa.nase72@gmail.com', 'Paki');
           $mail->addAddress($_POST['email']);
