@@ -1,13 +1,8 @@
 <?php
     $result = "";
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
+    require 'PHPMailer/PHPMailerAutoload.php';
 
     if(isset($_POST['submit'])){
-      require 'PHPMailer/src/Exception.php';
-      require 'PHPMailer/src/PHPMailer.php';
-      require 'PHPMailer/src/SMTP.php';
         $mail = new PHPMailer(true);
 
         try{
@@ -19,13 +14,6 @@
           $mail->SMTPSecure = 'tls';
           $mail->Username = 'nasa.nase72@gmail.com';
           $mail->Password = 'Jasamnikola1';
-          $mail->SMTPOptions = array(
-            'ssl' => array(
-              'verify_peer' => false,
-              'verify_peer_name' => false,
-              'allow_self_signed' => true
-            )
-          );
   
           $mail->setFrom('nasa.nase72@gmail.com', 'Paki');
           $mail->addAddress($_POST['email']);
