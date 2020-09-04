@@ -54,7 +54,7 @@
             <h3 class="card-title">Contact Us</h3>
           </div>
           <div class="card-body px-4">
-            <form action="#" method="POST">
+            <form method="POST">
               <div class="form-group">
                 <?php echo $result; ?>
               </div>
