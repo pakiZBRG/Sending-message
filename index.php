@@ -18,7 +18,7 @@
           $mail->Username = 'nasa.nase72@gmail.com';
           $mail->Password = 'Jasamnikola1';
   
-          $mail->setFrom($_POST['email'], $_POST['name']);
+          $mail->setFrom($_POST['email'], 'Paki');
           $mail->addAddress('nasa.nase72@gmail.com');
           $mail->addReplyTo('no-reply@gmail.com', 'No reply');
   
@@ -27,10 +27,11 @@
           $mail->Body = '<p>Name: <h3>'.$_POST['name'].'</h3>Email: <h3>'.$_POST['email'].'</h3>Message: <h3>'.$_POST['message'].'</h3></p>';
   
           $mail->send();
-          echo 'Message Successfully Sent.';
+          echo 'Message sent';
         }
         catch(Exception $e){
-          echo $mail->ErrorInfo;
+          $result = $mail->ErrorInfo;
+          echo "$result";
         }
         exit();
     }
@@ -54,7 +55,10 @@
             <h3 class="card-title">Contact Us</h3>
           </div>
           <div class="card-body px-4">
-            <form method="POST">
+            <form action="#" method="POST">
+              <div class="form-group">
+                <?php echo $result; ?>
+              </div>
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required>
