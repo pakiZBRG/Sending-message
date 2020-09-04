@@ -10,7 +10,7 @@
         $mail = new PHPMailer(true);
         try{
           $mail->isSMTP();
-          $mail->SMTPDebug = 4;  
+          // $mail->SMTPDebug = 4;
           $mail->Host = 'smtp.gmail.com';
           $mail->Port = 587;
           $mail->SMTPAuth = true;
@@ -27,11 +27,10 @@
           $mail->Body = '<p>Name: <h3>'.$_POST['name'].'</h3>Email: <h3>'.$_POST['email'].'</h3>Message: <h3>'.$_POST['message'].'</h3></p>';
   
           $mail->send();
-          echo 'Message sent';
+          $result =  'Message Successfully Sent.';
         }
         catch(Exception $e){
           $result = $mail->ErrorInfo;
-          echo "$result";
         }
         exit();
     }
