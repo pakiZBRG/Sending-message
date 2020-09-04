@@ -1,13 +1,16 @@
 <?php
     $result = "";
-    require 'PHPMailer/PHPMailerAutoload.php';
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
 
+    require 'vendor/autoload.php';
+    
     if(isset($_POST['submit'])){
         $mail = new PHPMailer(true);
-
         try{
           $mail->isSMTP();
-          $mail->SMTPDebug = SMTP::DEBUG_SERVER;  
+          $mail->SMTPDebug = 4;  
           $mail->Host = 'smtp.gmail.com';
           $mail->Port = 587;
           $mail->SMTPAuth = true;
