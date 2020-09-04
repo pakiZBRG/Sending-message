@@ -27,10 +27,10 @@
           $mail->Body = '<p>Name: <h3>'.$_POST['name'].'</h3>Email: <h3>'.$_POST['email'].'</h3>Message: <h3>'.$_POST['message'].'</h3></p>';
   
           $mail->send();
-          $result = 'Message Successfully Sent.';
+          echo 'Message Successfully Sent.';
         }
         catch(Exception $e){
-          $result = $mail->ErrorInfo;
+          echo $mail->ErrorInfo;
         }
         exit();
     }
@@ -75,7 +75,6 @@
               </div>
               <div class="form-group">
                 <input type="submit" name="submit" value="Send" class="btn btn-danger btn-block" id="sendBtn">
-                <?php echo $result; ?>
               </div>
             </form>
           </div>
