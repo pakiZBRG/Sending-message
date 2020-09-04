@@ -15,7 +15,7 @@
           $mail->Username = 'nasa.nase72@gmail.com';
           $mail->Password = 'Jasamnikola1';
   
-          $mail->setFrom($_POST['email'], $_POST['name']);
+          $mail->setFrom('nasa.nase72@gmail.com', $_POST['name']);
           $mail->addAddress('nasa.nase72@gmail.com');
           $mail->addReplyTo('no-reply@gmail.com', 'No reply');
   
